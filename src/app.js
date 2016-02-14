@@ -1,12 +1,19 @@
-import { render } from 'react';
-import { Router, Route, DefaultRoute } from 'react-router';
+import React from 'react';
+import { Router, Route, IndexRoute } from 'react-router';
 import { createHistory } from 'history';
 import Albums from './albums.js';
-import Album from './album.js';
+import AlbumShortened from './albumShortened.js';
 
+class app extends React.Component {
+    render(){
+        return this.props.children;
+    }
+}
 let routes = <Router history={createHistory()}>
-    <DefaultRoute path='/' component={Albums} />
-    <Route path=':album' component={Album} />
+    <Route path='/' component={app}>
+        <IndexRoute component={Albums} />
+        <Route path='/:album' component={AlbumShortened} />
+    </Route>
 </Router>
 
-render( routes, document.getElementById('app') );
+React.render( routes, document.getElementById('app') );

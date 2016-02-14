@@ -1,19 +1,25 @@
 import React from 'react';
-import data from './dataStore';
+import { songs } from './dataStore';
 
 export default class Album extends React.Component {
     render(){
         return (
             <div>
-                <div>
+                <span style={{
+                    background: "whitesmoke",
+                }}>
                     well this is a picture
-                </div>
+                </span>
                 <ul>
                     {
-                        data.songs(this.props.name).map(song => {
-                            <li>
-                                song: {song}
-                            </li>
+                        songs({
+                            albumName: this.props.name,
+                        }).map(song => {
+                            return (
+                                <li>
+                                    song: {song}
+                                </li>
+                            )
                         })
                     }
                 </ul>

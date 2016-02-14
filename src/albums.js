@@ -1,11 +1,18 @@
 import React from 'react';
-import Album from './album.js';
-import data from './dataStore.js'
+import AlbumShortened from './albumShortened.js';
+import { albums } from './dataStore.js';
 
 export default class Albums extends React.Component {
-    render(){
-        return data.albums.map( album => {
-            <Album name={album} />
-        } )
+    render() {
+        return (
+            <div>
+                {
+                    albums().map( album => {
+                        return <AlbumShortened name={album} />
+                    })
+                }
+            </div>
+
+        );
     }
 }
