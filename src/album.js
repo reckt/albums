@@ -13,7 +13,7 @@ export default class Album extends React.Component {
                 <ul>
                     {
                         songs({
-                            albumName: this.props.params.album,
+                            albumName: this.props.name,
                         }).map(song => {
                             return (
                                 <li>
