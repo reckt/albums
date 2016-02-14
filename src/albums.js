@@ -4,7 +4,7 @@ import data from './dataStore.js'
 
 export default class Albums extends React.Component {
     render(){
-        data.albums.map( album => {
+        return data.albums.map( album => {
             <Album name={album} />
         } )
     }
